@@ -2,9 +2,9 @@
 	"name": "projecto1",
 	"version": "1.0.0",
 	"description": "MEAN-MERN",
-	"main": "index.js",
+	"main": "server.js",
 	"scripts": {
-		"start": "nodemon ./index.js --exec babel-node -e js"
+		"start": "nodemon ./server.js --exec babel-node -e js"
 	},
 	"author": "Tiago Gaspar",
 	"license": "ISC",
