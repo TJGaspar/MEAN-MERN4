@@ -2,6 +2,7 @@ import express from "express";
 import routes from "./src/routes/ticketRoutes.js";
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
+const cors = require("cors");
 
 const app = express();
 const PORT = 3000;
@@ -13,11 +14,23 @@ mongoose.connect("mongodb://localhost/PROJdb", {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
 	useCreateIndex: true,
+})
+.then(()=>{
+	console.log("connected to database");
+})
+.catch(err =>{
+	console.log("cannot connect to database", err);
+	process.exit();
 });
 
 // bodyparser setup
+//app.use(bodyParser.text());
+app.use(cors());
+// parse requests of content type - x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
+//parse requests of content type -json
 app.use(bodyParser.json());
+
 
 routes(app);
 
