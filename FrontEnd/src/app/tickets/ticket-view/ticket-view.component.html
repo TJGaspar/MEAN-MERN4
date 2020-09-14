@@ -1,0 +1,41 @@
+<p>ticket-view works!</p>
+
+
+
+<mat-card>
+    <mat-card-header>
+      <mat-card-title>View</mat-card-title>
+    </mat-card-header>
+  <div>
+    <fieldset disabled><mat-form-field appearance="fill">
+        <mat-label>Input</mat-label>
+        <input [(ngModel)]= "this.ticket.title" matInput placeholder ="Title">
+      </mat-form-field>
+      <br>
+      
+      <mat-form-field appearance="fill">
+       <input [(ngModel)]= "this.ticket.reason" matInput placeholder ="Reason">
+    </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <textarea [(ngModel)]= "ticket.description" matInput placeholder ="description body"  ></textarea>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Select</mat-label>
+        <textarea [(ngModel)]= "ticket.priority" matInput placeholder ="priority"  ></textarea>
+        
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <textarea [(ngModel)]= "ticket.newMessage" matInput placeholder ="newMessage body"  ></textarea>
+      </mat-form-field>
+    </fieldset>
+    
+  </div>
+  <mat-card-actions>
+    <a routerLink="/ticket">
+      <button  mat-button>List</button>
+    </a> 
+  </mat-card-actions>
+  </mat-card>

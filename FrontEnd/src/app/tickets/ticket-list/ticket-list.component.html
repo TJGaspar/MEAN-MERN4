@@ -1,0 +1,49 @@
+<!-- <p>ticket-list works!</p> -->
+<!-- <app-ticket-form [editField] ="editFieldOnList" [xpto] = "xptoValue"></app-ticket-form> -->
+<!-- <app-ticket-form *ngFor= "let aTicket of tickets">{{aTicket.title}}</app-ticket-form> -->
+<!-- <div class="list" *ngFor= "let aTicket of tickets">{{aTicket.title}}</div> -->
+
+
+<div class="list row">
+    <div class="col-lg-12">
+        <h1 class="text-center text-primary">Ticket List</h1>
+        <div class="text-center">
+            <a routerLink="/create">
+                <button class="btn btn-success">+</button>
+            </a>
+        </div>
+        <div class="list row">
+            <div class="col-lg-4">
+                <h6>Title</h6>
+            </div>
+            <div class="col-lg-4">
+                <h6>Priority</h6>
+            </div>
+            <div class="col-lg-4">
+                <h6>Date of Creation</h6>
+            </div>
+        </div>
+        <ul class="list-group">
+            <div class="list row" *ngFor= "let aTicket of tickets">
+                <div class="list list-group-item col-sm-11"
+                    routerLink="/ticket/{{ aTicket._id }}" (click)="getTicket(aTicket)">
+                    <div class="list row">
+                        <div class="col-lg-4">
+                            <div>{{ aTicket.title }}</div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div>{{ aTicket.priority }}</div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div>{{ aTicket.createdAt }}</div>
+                        </div>
+                    </div>
+                </div>
+                <button class="badge badge-danger col"  (click)="delete(aTicket)">
+                    X
+                </button>
+            </div>
+
+        </ul>
+    </div>
+</div>

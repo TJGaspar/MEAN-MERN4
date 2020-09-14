@@ -10,9 +10,8 @@ export const TicketSchema = new Schema(
 		},
 		priority: {
 			type: String,
-			default: "normal", 
+			default: "normal",
 			required: "enter the ticket priority",
-			uppercase: true,
 		},
 		reason: {
 			type: String,

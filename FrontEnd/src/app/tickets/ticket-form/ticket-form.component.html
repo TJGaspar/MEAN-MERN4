@@ -1,0 +1,45 @@
+
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Write a new Ticket</mat-card-title>
+  </mat-card-header>
+<div>
+  <mat-form-field appearance="fill">
+    <mat-label>Input</mat-label>
+    <input [(ngModel)]= "ticket.title" matInput placeholder ="Title"  >
+  </mat-form-field>
+  <br>
+  
+  <mat-form-field appearance="fill">
+  <mat-select [(ngModel)]= "ticket.reason">
+    <mat-option  ngDefaultControl >Option</mat-option>
+    <mat-option value= "No reason" >No Reason</mat-option>
+    <mat-option value= "Some rEason">Some rEason</mat-option>
+    <mat-option value= "Your reason">Your reason</mat-option>
+  </mat-select>
+</mat-form-field>
+  <br>
+  <mat-form-field appearance="fill">
+    <textarea [(ngModel)]= "ticket.description" matInput placeholder ="description body"  ></textarea>
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>Select</mat-label>
+    <mat-select [(ngModel)]= "ticket.priority">
+      <mat-option ngDefaultControl >Option</mat-option>
+      <mat-option value= "LOW">LOW</mat-option>
+      <mat-option value= "NORMAL">NORMAL</mat-option>
+      <mat-option value= "HIGH">HIGH</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="fill">
+    <textarea [(ngModel)]= "ticket.newMessage" matInput placeholder ="newMessage body"  ></textarea>
+  </mat-form-field>
+</div>
+<mat-card-actions>
+  <a routerLink="/ticket">
+    <button (click)="put()" mat-button>Post</button>
+  </a>
+</mat-card-actions>
+</mat-card>

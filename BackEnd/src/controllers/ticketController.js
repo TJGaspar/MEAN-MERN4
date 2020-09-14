@@ -21,6 +21,7 @@ export const addNewTicket = (req, res) => {
 				ticket,
 				message: `${req.body.title} was successfuly created`,
 			});
+			res.status(200).send();
 	});
 };
 
@@ -34,7 +35,7 @@ export const getTickets = (req, res) => {
 			res.send(CreateNewError);
 		}
 		res.json(ticket);
-	});
+	}).sort({ createdAt: -1 });
 };
 
 
@@ -67,7 +68,7 @@ export const updateTicket = (req, res) => {
 
 //Deletes a Ticket
 export const deleteTicket = (req, res) => {
-	Ticket.remove({_id: req.params.ticketID}, (err, ticket) => {
+	Ticket.remove({_id: req.params.ticketID}, (err) => {
 		if (err) {
 			console.log(err);
 			let CreateNewError = CreateErrors(err, undefined);
