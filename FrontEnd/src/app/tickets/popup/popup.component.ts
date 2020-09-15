@@ -23,23 +23,10 @@ export class PopupComponent implements OnInit {
         this.displayTimer -= 1;
 
         if (this.displayTimer == 1) {
-          console.log('clear= ' + this.displayTimer);
           clearInterval(interval);
         }
       }
-      console.log(this.displayTimer);
+
     }, 1000);
-
-
-
-    // console.log('clear= ' + this.displayTimer);
-    // if (this.displayTimer == 1) {
-    //   console.log('clear= ' + this.displayTimer);
-    //   clearInterval(interval);
-    // }
-
-    // setTimeout(() => {
-    //   dialogRef.close();
-    // }, 5000);
   }
 }

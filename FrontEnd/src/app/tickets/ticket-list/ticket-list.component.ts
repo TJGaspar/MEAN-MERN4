@@ -27,14 +27,11 @@ export class TicketListComponent {
     this.tickets = (await this.http
       .get('http://localhost:3000/ticket')
       .toPromise()) as any;
-    console.log(this.tickets);
     this.collection == this.tickets;
   }
 
   getTicket(ticket) {
     this.ticket = ticket;
-    console.log(this.ticket);
- 
   }
 
   delete(ticket) {

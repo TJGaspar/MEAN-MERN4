@@ -8,7 +8,6 @@ const Errors = mongoose.model("Error", TicketErrorSchema);
 export const addNewTicket = (req, res) => {
 	Ticket.create(req.body,(err, ticket) => {
 		if (err) {
-			console.log(err)
 			let CreateNewError = CreateErrors(err, req.body.title);
 			res.send(CreateNewError);
 		} else
@@ -24,7 +23,6 @@ export const addNewTicket = (req, res) => {
 export const getTickets = (req, res) => {
 	Ticket.find({}, (err, ticket) => {
 		if (err) {
-			console.log(err);
 			let CreateNewError = CreateErrors(err, undefined);
 			res.send(CreateNewError);
 		}
@@ -35,7 +33,6 @@ export const getTickets = (req, res) => {
 export const getTicketWithID = (req, res) => {
 	Ticket.findById(req.params.ticketID, (err, ticket) => {
 		if (err) {
-			console.log(err);
 			let CreateNewError = CreateErrors(err, undefined);
 			res.send(CreateNewError);
 		}
@@ -46,7 +43,6 @@ export const getTicketWithID = (req, res) => {
 export const updateTicket = (req, res) => {
 	Ticket.findOneAndUpdate({_id: req.params.ticketID}, req.body, {new: true, useFindAndModify: false}, (err, ticket) => {
 		if (err) {
-			console.log(err);
 			let CreateNewError = CreateErrors(err, undefined);
 			res.send(CreateNewError);
 		}
@@ -57,7 +53,6 @@ export const updateTicket = (req, res) => {
 export const deleteTicket = (req, res) => {
 	Ticket.remove({_id: req.params.ticketID}, (err) => {
 		if (err) {
-			console.log(err);
 			let CreateNewError = CreateErrors(err, undefined);
 			res.send(CreateNewError);
 		}
