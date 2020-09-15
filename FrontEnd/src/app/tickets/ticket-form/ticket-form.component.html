@@ -31,8 +31,8 @@
       </mat-select>
     </mat-form-field>
     <br />
-    <mat-form-field appearance="fill" maxlength="10">
-      <textarea
+    <mat-form-field appearance="fill">
+      <textarea ngModel maxlength="300"
         [(ngModel)]="ticket.description"
         matInput
         placeholder="description" 

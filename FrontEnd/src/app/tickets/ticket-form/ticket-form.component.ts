@@ -35,10 +35,11 @@ ticket = {
 
   openDialog() {
     const dialogRef = this.dialog.open(PopupComponent);
+    setTimeout(() => {
+      dialogRef.close();
+    }, 4000);
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
+    dialogRef.afterClosed();
   }
 
 }
