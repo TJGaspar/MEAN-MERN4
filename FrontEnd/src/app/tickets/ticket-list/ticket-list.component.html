@@ -1,10 +1,4 @@
-<!-- <p>ticket-list works!</p> -->
-<!-- <app-ticket-form [editField] ="editFieldOnList" [xpto] = "xptoValue"></app-ticket-form> -->
-<!-- <app-ticket-form *ngFor= "let aTicket of tickets">{{aTicket.title}}</app-ticket-form> -->
-<!-- <div class="list" *ngFor= "let aTicket of tickets">{{aTicket.title}}</div> -->
 
-<!-- <ul>
-    <li *ngFor="let item of collection | paginate: { itemsPerPage: 8, currentPage: p }"> -->
 
 <div class="list row">
   <div class="col-lg-12">
@@ -40,7 +34,7 @@
               type="button"
               class="close mr-4"
               aria-label="Close"
-              (click)="delete(aTicket)"
+              (click)="delete(aTicket); $event.stopPropagation()"
             >
               <span aria-hidden="true" class="text-danger">&times;</span>
             </button>

@@ -21,6 +21,6 @@ export class TicketViewComponent implements OnInit {
 
   async ngOnInit() {
     this.ticket = (await this.http.get('http://localhost:3000/ticket/'+this.route.snapshot.paramMap.get('id')).toPromise())  as any;
-    // console.log(this.ticket);
+
   }
 }

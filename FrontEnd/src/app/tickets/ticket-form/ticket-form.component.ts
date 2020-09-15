@@ -1,27 +1,16 @@
 // import { Component, Input, OnInit } from '@angular/core';
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import {MatDialog} from '@angular/material/dialog';
+import { PopupComponent } from '../popup/popup.component';
 
 @Component({
   selector: 'app-ticket-form',
   templateUrl: './ticket-form.component.html',
   styleUrls: ['./ticket-form.component.scss']
 })
-// export class TicketFormComponent implements OnInit {
+
   export class TicketFormComponent{
-
-  // @Input()
-  // editField = "User can edit this field!";
-
-  // @Input()
-  // xpto = "XPTO defaultValue";
-  
-  // titleApp = "Title";
-  // descriptionApp = "Description";
-  // priorityApp= "Priority";
-  // reasonApp = "Reason";
-  // newMessageApp = "New Message"
-   
 
 ticket = {
   title: "",
@@ -31,8 +20,9 @@ ticket = {
   newMessage: "",
 };
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, public dialog: MatDialog) {}
   
+
   
   put(){
     console.log('put', this.ticket);
@@ -41,6 +31,14 @@ ticket = {
 
   ngOnInit(): void {
     this.http.get('http://localhost:3000/ticket').toPromise();
+  }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(PopupComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 
 }

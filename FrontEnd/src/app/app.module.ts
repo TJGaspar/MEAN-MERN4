@@ -26,6 +26,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import {NgxPaginationModule} from 'ngx-pagination';
+import { PopupComponent } from './tickets/popup/popup.component';
+import {MatDialogModule} from '@angular/material/dialog';
+
 
 
 
@@ -35,13 +38,15 @@ import {NgxPaginationModule} from 'ngx-pagination';
     TicketViewComponent,
     TicketListComponent,
     TicketFormComponent,
-    AppComponent, 
+    AppComponent,
+    PopupComponent, 
   ],
   exports:[    
     MatFormFieldModule,
     MatSliderModule,
    ],
   imports: [
+    MatDialogModule,
     MatListModule,
     CommonModule,
     FormsModule,
