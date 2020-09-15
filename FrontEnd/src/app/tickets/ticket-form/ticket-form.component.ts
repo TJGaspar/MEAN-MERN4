@@ -1,32 +1,30 @@
 // import { Component, Input, OnInit } from '@angular/core';
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {MatDialog} from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { PopupComponent } from '../popup/popup.component';
 
 @Component({
   selector: 'app-ticket-form',
   templateUrl: './ticket-form.component.html',
-  styleUrls: ['./ticket-form.component.scss']
+  styleUrls: ['./ticket-form.component.scss'],
 })
-
-  export class TicketFormComponent{
-
-ticket = {
-  title: "",
-  description: "",
-  reason: "",
-  priority: "",
-  newMessage: "",
-};
+export class TicketFormComponent {
+  timerSeconds =50000
+  displayTimer : number;
+  ticket = {
+    title: '',
+    description: '',
+    reason: '',
+    priority: '',
+    newMessage: '',
+  };
 
   constructor(private http: HttpClient, public dialog: MatDialog) {}
-  
 
-  
-  put(){
+  put() {
     console.log('put', this.ticket);
-    this.http.put('http://localhost:3000/ticket',this.ticket).subscribe();
+    this.http.put('http://localhost:3000/ticket', this.ticket).subscribe();
   }
 
   ngOnInit(): void {
@@ -35,11 +33,10 @@ ticket = {
 
   openDialog() {
     const dialogRef = this.dialog.open(PopupComponent);
+
     setTimeout(() => {
       dialogRef.close();
-    }, 4000);
+    }, 5000);
 
-    dialogRef.afterClosed();
   }
-
 }

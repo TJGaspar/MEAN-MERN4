@@ -50,7 +50,8 @@
   </div>
   <mat-card-actions>
     <a routerLink="/ticket">
-    <button (click)="openDialog()" (click)="put()" mat-button>Post</button>
+    <button (click)="openDialog(); put()" mat-button>Create</button>
+    <button mat-button>Cancel</button>
   </a>
 
     <!-- <button  mat-button (click)="openDialog()" (click)="put()">Create</button> -->
