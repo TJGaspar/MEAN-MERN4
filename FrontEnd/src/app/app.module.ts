@@ -25,7 +25,7 @@ import { FormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
 
-
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 
@@ -48,13 +48,13 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
-   // TicketsModule,
     MatFormFieldModule,
     MatSliderModule,
     BrowserAnimationsModule,
     MatSelectModule,
     MatInputModule,
-    MatCardModule
+    MatCardModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

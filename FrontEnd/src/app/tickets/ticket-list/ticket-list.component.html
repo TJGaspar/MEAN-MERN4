@@ -3,47 +3,55 @@
 <!-- <app-ticket-form *ngFor= "let aTicket of tickets">{{aTicket.title}}</app-ticket-form> -->
 <!-- <div class="list" *ngFor= "let aTicket of tickets">{{aTicket.title}}</div> -->
 
+<!-- <ul>
+    <li *ngFor="let item of collection | paginate: { itemsPerPage: 8, currentPage: p }"> -->
 
 <div class="list row">
-    <div class="col-lg-12">
-        <h1 class="text-center text-primary">Ticket List</h1>
-        <div class="text-center">
-            <a routerLink="/create">
-                <button class="btn btn-success">+</button>
-            </a>
-        </div>
-        <div class="list row">
-            <div class="col-lg-4">
-                <h6>Title</h6>
-            </div>
-            <div class="col-lg-4">
-                <h6>Priority</h6>
-            </div>
-            <div class="col-lg-4">
-                <h6>Date of Creation</h6>
-            </div>
-        </div>
-        <ul class="list-group">
-            <div class="list row" *ngFor= "let aTicket of tickets">
-                <div class="list list-group-item col-sm-11"
-                    routerLink="/ticket/{{ aTicket._id }}" (click)="getTicket(aTicket)">
-                    <div class="list row">
-                        <div class="col-lg-4">
-                            <div>{{ aTicket.title }}</div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div>{{ aTicket.priority }}</div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div>{{ aTicket.createdAt }}</div>
-                        </div>
-                    </div>
-                </div>
-                <button class="badge badge-danger col"  (click)="delete(aTicket)">
-                    X
-                </button>
-            </div>
-
-        </ul>
+  <div class="col-lg-12">
+    <h1 class="text-center text-secondary">Ticket List</h1>
+    <div class="text-center">
+      <a routerLink="/create">
+        <button class="btn btn-secondary float-right mb-2 mr-4">+</button>
+      </a>
     </div>
+
+    <table class="table table-dark">
+      <thead>
+        <tr class="font-weight-bold">
+          <th scope="col">Title</th>
+          <th scope="col">Priority</th>
+          <th scope="col">Date of Creation</th>
+
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let aTicket of tickets"
+          routerLink="/ticket/{{ aTicket._id }}"
+          (click)="getTicket(aTicket)"
+        >
+          <th scope="row">{{ aTicket.title }}</th>
+          <td>{{ aTicket.priority }}</td>
+          <td>{{ aTicket.createdAt | date: "medium" }}</td>
+
+          <td>
+            <button
+              type="button"
+              class="close mr-4"
+              aria-label="Close"
+              (click)="delete(aTicket)"
+            >
+              <span aria-hidden="true" class="text-danger">&times;</span>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
+
+<!-- </li>
+</ul>
+           
+<pagination-controls (pageChange)="p = $event"></pagination-controls> -->

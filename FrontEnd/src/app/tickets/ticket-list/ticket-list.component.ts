@@ -1,19 +1,21 @@
 import { Component } from '@angular/core';
-import { HttpClient, HttpDownloadProgressEvent } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
+
+
 @Component({
   selector: 'app-ticket-list',
   templateUrl: './ticket-list.component.html',
   styleUrls: ['./ticket-list.component.scss'],
 })
 export class TicketListComponent {
-  // title= "This list will recieve the forms";
-  // descriptionApp ="This description comes from ticketlistComponent"
-  // editFieldOnList = "Value on the list"
-  // xptoValue = "value from ticketlist component"
+
+
 
   tickets = [];
-
   ticket = null;
+
+  p: number = 1;
+    collection: any[]; 
 
   constructor(private http: HttpClient) {}
 
@@ -26,11 +28,13 @@ export class TicketListComponent {
       .get('http://localhost:3000/ticket')
       .toPromise()) as any;
     console.log(this.tickets);
+    this.collection == this.tickets;
   }
 
   getTicket(ticket) {
     this.ticket = ticket;
     console.log(this.ticket);
+ 
   }
 
   delete(ticket) {
