@@ -1,29 +1,28 @@
-
-
-<mat-card>
+<mat-card style="width: 100%; height: 100%; box-sizing: border-box">
   <mat-card-header>
     <mat-card-title>Write a new Ticket</mat-card-title>
   </mat-card-header>
   <div>
+<form #ticketForm="ngForm">
+  <fieldset enabled>
     <mat-form-field appearance="fill">
-      <mat-label >Title</mat-label>
-      <input [(ngModel)]="ticket.title" matInput placeholder="Title" />
+      <mat-label>Title</mat-label>
+      <input name ="title" [(ngModel)]="ticket.title" matInput placeholder="Title" required/>
     </mat-form-field>
     <br />
     <mat-form-field appearance="fill">
       <mat-label>Priority</mat-label>
-      <mat-select [(ngModel)]="ticket.priority">
+      <mat-select  name ="priority" [(ngModel)]="ticket.priority" required>
         <mat-option ngDefaultControl>Option</mat-option>
         <mat-option value="LOW">LOW</mat-option>
         <mat-option value="NORMAL">NORMAL</mat-option>
         <mat-option value="HIGH">HIGH</mat-option>
       </mat-select>
     </mat-form-field>
-   
 
     <mat-form-field appearance="fill">
       <mat-label>Reason</mat-label>
-      <mat-select [(ngModel)]="ticket.reason">
+      <mat-select name ="reason"[(ngModel)]="ticket.reason" required>
         <mat-option ngDefaultControl>Option</mat-option>
         <mat-option value="No reason">No Reason</mat-option>
         <mat-option value="Some rEason">Some rEason</mat-option>
@@ -32,27 +31,37 @@
     </mat-form-field>
     <br />
     <mat-form-field appearance="fill">
-      <textarea ngModel maxlength="300"
+      <textarea name ="description"
+        ngModel
+        maxlength="300"
         [(ngModel)]="ticket.description"
         matInput
-        placeholder="description" 
-      ></textarea>
+        placeholder="description"
+      required></textarea>
     </mat-form-field>
     <br />
- 
+
     <mat-form-field appearance="fill">
-      <textarea
+      <textarea name ="newMessage"
         [(ngModel)]="ticket.newMessage"
         matInput
         placeholder="New Message "
       ></textarea>
     </mat-form-field>
-  </div>
-  <mat-card-actions>
-    <a routerLink="/ticket">
-    <button (click)="openDialog(); put()" mat-button>Create</button>
+  </fieldset>
+  <br />
+
+  <a routerLink="/ticket" >
+    <button (click)="openDialog(); put()" mat-button [disabled]="ticketForm.invalid">Create</button>
     <button mat-button>Cancel</button>
   </a>
+
+</form>
+    
+
+  </div>
+  <mat-card-actions>
+  
 
     <!-- <button  mat-button (click)="openDialog()" (click)="put()">Create</button> -->
   </mat-card-actions>

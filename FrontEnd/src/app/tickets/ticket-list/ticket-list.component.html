@@ -21,7 +21,9 @@
       </thead>
       <tbody>
         <tr
-          *ngFor="let aTicket of tickets"
+          *ngFor="let aTicket of tickets| paginate: {
+          itemsPerPage: 8,
+          currentPage: p} "
           routerLink="/ticket/{{ aTicket._id }}"
           (click)="getTicket(aTicket)"
         >
@@ -44,7 +46,7 @@
     </table>
   </div>
 </div>
-
+<pagination-controls (pageChange)="p = $event"></pagination-controls>
 <!-- </li>
 </ul>
            

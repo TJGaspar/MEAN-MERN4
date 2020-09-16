@@ -23,7 +23,6 @@ export class TicketFormComponent {
   constructor(private http: HttpClient, public dialog: MatDialog) {}
 
   put() {
-    console.log('put', this.ticket);
     this.http.put('http://localhost:3000/ticket', this.ticket).subscribe();
   }
 
